@@ -8,8 +8,6 @@
     if($conn)
     {
         mysqli_query($conn, "SET NAMES 'UTF8'");
-        echo "Kết nối thành công";
-
     }
     else
     {
