@@ -18,14 +18,8 @@ loginBtn.onclick = () => {
                 if(data == "admin"){  
                     location.href = "../Admin/index.php";
                 }
-                if(data == "staff"){  
-                    location.href = "../Staff/index.php";
-                }
-                if(data == "customer"){  
-                    location.href = "../Customer/index_home.php";
-                }
-                if(data == "success"){  
-                    location.href = "../Customer/index_home.php";
+                if(data == "emloyee"){  
+                    location.href = "../Emloyee/index.php";
                 }
                 
                 else{
