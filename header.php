@@ -61,7 +61,7 @@
                 <div class="navbar-nav w-100">
                     <a href="http://localhost/HR_Management/Admin/index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Trang chủ</a>
                     <div class="nav-item dropdown">
-                        <a href="User/index.php" class="nav-link"><i class="fa fa-laptop me-2"></i>Tài khoản</a>
+                        <a href="http://localhost/HR_Management/Admin/User/index.php" class="nav-link"><i class="fa fa-laptop me-2"></i>Tài khoản</a>
                     </div>
                     <a href="http://localhost/HR_Management/Admin/Employee/index.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Nhân viên</a>
                     <a href="http://localhost/HR_Management/Admin/Attendance/index.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Chấm công</a>

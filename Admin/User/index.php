@@ -4,49 +4,75 @@
 ?>
     <div class="col-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Responsive Table</h6>
+                            <h6 class="mb-4">Tài khoản</h6>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
+                                        <div style="display: flex;">
+                                            <input type="text" name="EmployeeCode" class="form-control" placeholder="Mã nhân viên" aria-label="Mã nhân viên" aria-describedby="basic-addon2" style="width: 20%; height:40px;">
+                                            <button class="btn btn-secondary" style="margin-left: 10px;" name="search" type="search">Tìm kiếm</button>
+                                            <!-- <button class="btn btn-secondary" style="margin-left: 10px;" onclick="window.local.href = 'index.php'">Đặt lại</button>
+                                            <button class="btn btn-secondary" style="margin-left: 10px;" onclick="ResetData()">Xóa dữ liệu</button> -->
+                                            <!-- <button class="btn btn-secondary" style="margin-left: 45%;" onclick="">Xuất Excel</button> -->
+                                        </div>
+
+                                    </thead>
+                                    <thead>
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First Name</th>
-                                            <th scope="col">Last Name</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Country</th>
-                                            <th scope="col">ZIP</th>
-                                            <th scope="col">Status</th>
+                                            <th scope="col">STT</th>
+                                            <th scope="col">Tên đăng nhập</th>
+                                            <th scope="col">Mật khẩu</th>
+                                            <th scope="col">Chức vụ</th>
+                                            <th scope="col">Trạng thái</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>John</td>
-                                            <td>Doe</td>
-                                            <td>jhon@email.com</td>
-                                            <td>USA</td>
-                                            <td>123</td>
-                                            <td>Member</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>mark@email.com</td>
-                                            <td>UK</td>
-                                            <td>456</td>
-                                            <td>Member</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>jacob@email.com</td>
-                                            <td>AU</td>
-                                            <td>789</td>
-                                            <td>Member</td>
-                                        </tr>
-                                    </tbody>
+                                    <!-- CODE PHP -->
+                                <?php
+                                    $sql = "SELECT * FROM `tb_user`";
+                                    $res = mysqli_query($conn, $sql);
+                                    if($res == TRUE)
+                                    {
+                                        $count = mysqli_num_rows($res);
+                                        if($count>0)
+                                        {
+                                            while($row = mysqli_fetch_assoc($res))
+                                            {
+                                                $username = $row['UserName'];
+                                                $password = $row['Password'];
+                                                $level = $row['Level'];
+                                                $status = $row['status'];
+                                                
+                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td><?php echo $username; ?></td>            
+                                                    <td><?php echo $password; ?></td>                                                     
+                                                    <td><?php 
+                                                            if($level == 1){
+                                                                echo 'Quản lý';
+                                                            }
+                                                            if($level == 2){
+                                                                echo 'Nhân viên';
+                                                            }
+                                                        ?></td>                                                     
+                                                    <td><?php 
+                                                            if($status == 1){
+                                                                echo 'Hoạt động';
+                                                            }
+                                                            if($status == 2){
+                                                                echo 'Không hoạt động';
+                                                            }
+                                                        ?></td> 
+                                                </tr>
+                                <?php
+                                            }
+                                        }
+                                        else
+                                        {
+
+                                        }
+                                    }
+                                ?>
                                 </table>
                             </div>
                         </div>
