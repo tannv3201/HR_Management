@@ -1,7 +1,8 @@
 <?php
-    include('../../Header/header.php');
+    include('../../ConnectDatabase/connect.php');
+    include('../../header.php');
 ?>
 
 <?php
-    include('../../Header/footer.php');
+    include('../../footer.php');
 ?>
