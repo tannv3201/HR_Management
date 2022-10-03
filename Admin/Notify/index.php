@@ -13,24 +13,23 @@ include('../../header.php');
 </div>
 <div class="container-fluid pt-4 px-4">
     <div class="col-12">
-        <div class="bg-light rounded h-100 p-4">
+        <div style="border:1px solid #ccc" class="bg-white rounded h-100 p-4">
             <h3 class="mb-4">Bảng thông báo</h3>
             <div class="table-responsive" style="height: 400px;">
                 <table class="table">
                     <thead>
                         <div style="display: flex;">
-                            <button type="button" class="btn btn-secondary" style="margin-left: 10px;"><a href="add.php" style="color: white;">Thêm thông báo</a></button>
+                            <button type="button" class="btn btn-secondary" style="margin-left: 10px;"><a href="add.php"
+                                    style="color: white;">Thêm thông báo</a></button>
                         </div>
                     </thead>
                     <thead>
                         <tr>
-                            <th scope="col">Id </th>
-                            <th scope="col">Tiêu đề thông báo</th>
-                            <th scope="col">Nội dung thông báo</th>
+                            <th scope="col">STT</th>
+                            <th scope="col">Tiêu đề</th>
                             <th scope="col">Thời gian tạo</th>
-                            <th scope="col">Trạng thái</th>
+                            <th class="text-center" scope="col">Trạng thái</th>
                             <th scope="col">Sửa</th>
-                            <th scope="col">Xóa</th>
                             <th scope="col">Chi tiết</th>
                         </tr>
                     </thead>
@@ -40,42 +39,53 @@ include('../../header.php');
                         $qr = mysqli_query($conn, $sql);
                         while ($row  = mysqli_fetch_assoc($qr)) {
                         ?>
-                            <tr>
-                                <td><?= $row['Id'] ?></td>
-                                <td><?= $row['NotifyName'] ?></td>
-                                <td><?= $row['NotifyContent'] ?></td>
-                                <td><?= $row['CreateTime'] ?></td>
-                                <td><?php if ($row['NotifyStatus'] == 1) {
-                                        echo "Actice";
+                        <tr>
+                            <td><?= $row['Id'] ?></td>
+                            <td><?= $row['NotifyName'] ?></td>
+                            <td><?= $row['CreateTime'] ?></td>
+                            <td id=<?=  $row['Id'] ?> style="cursor:pointer" class="status text-center"
+                                name_status="<?=$row['NotifyStatus']?>">
+                                <?php if ($row['NotifyStatus'] == 1) {
+                                       ?>
+                                <i class="fa-solid fa-lock-open"></i>
+                                <?php
                                     } else {
-                                        echo "Disable";
+                                       ?>
+                                <i class="fa-solid fa-lock"></i>
+                                <?php
                                     }
-                                    ?></td>
-                                <th scope="col"><a href="update.php?id=<?= $row['Id'] ?>"><button type="button" class="btn btn-secondary">Sửa</button></a></th>
-                                <th scope="col"><a href="delete.php?id=<?= $row['Id'] ?>"><button type="button" class="btn btn-secondary">Xóa</button></a></th>
-                                <th>
-                                    <!-- Button trigger modal -->
-                                    <button id="<?= $row['Id'] ?>" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $row['Id'] ?>">
-                                        Chi tiết
-                                    </button>
+                                    ?>
+                            </td>
+                            <th scope="col"><a href="update.php?id=<?= $row['Id'] ?>"><button type="button"
+                                        class="btn btn-secondary">Sửa</button></a></th>
+                            <th>
+                                <!-- Button trigger modal -->
+                                <button id="<?= $row['Id'] ?>" type="button" class="btn btn-secondary"
+                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $row['Id'] ?>">
+                                    Chi tiết
+                                </button>
 
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="staticBackdrop<?= $row['Id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop<?= $row['Id'] ?>" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-xl">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="table-responsive">
                                                     <table class="table">
                                                         <thead>
                                                             <tr>
                                                                 <th scope="col">STT </th>
-                                                                <th scope="col">Tiêu đề thông báo</th>
-                                                                <th scope="col">Nội dung thông báo</th>
-                                                                <th scope="col">Thời gian tạo</th>
-                                                                <th scope="col">Trạng thái </th>
+                                                                <th style="width:10%" scope="col">Tiêu đề</th>
+                                                                <th scope="col">Nội dung</th>
+                                                                <th style="width:12%" scope="col">Thời gian tạo</th>
+                                                                <th style="width:10%" scope="col">Trạng thái</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -87,10 +97,11 @@ include('../../header.php');
                                                             <tr>
                                                                 <td><?= $row1['Id'] ?></td>
                                                                 <td><?= $row1['NotifyName'] ?></td>
-                                                                <td><?= $row1['NotifyContent'] ?></td>
+                                                                <td style="text-align:justify">
+                                                                    <?= $row1['NotifyContent'] ?></td>
                                                                 <td><?= $row1['CreateTime'] ?></td>
                                                                 <td><?php if ($row1['NotifyStatus'] == 1) {
-                                                                        echo "Actice";
+                                                                        echo "Active";
                                                                     } else {
                                                                         echo "Disable";
                                                                     }
@@ -100,14 +111,16 @@ include('../../header.php');
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
                                             </div>
                                         </div>
                                     </div>
-                                </th>
-                            </tr>
+                                </div>
+                            </th>
+                        </tr>
                         <?php
                         }
                         ?>
@@ -120,3 +133,31 @@ include('../../header.php');
         <?php
         include('../../footer.php');
         ?>
+
+        <script>
+        $('.fa-solid').click(function() {
+            status = $(this).parent().attr('name_status')
+            id = $(this).parent().attr('id')
+            $.ajax({
+                method: "POST",
+                url: "lock.php",
+                data: {
+                    status: status,
+                    id: id
+                },
+                // success: function(dt) {
+
+                // }
+            })
+            if (status == 0) {
+                $(this).parent().attr('name_status', "1")
+                $(this).removeClass("fa-lock")
+                $(this).addClass("fa-lock-open")
+            } else {
+                $(this).parent().attr('name_status', "0")
+                $(this).addClass("fa-lock")
+                $(this).removeClass("fa-lock-open")
+            }
+
+        })
+        </script>

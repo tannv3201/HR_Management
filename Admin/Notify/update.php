@@ -19,21 +19,24 @@ if (isset($_GET['id'])) {
 </div>
 <div class="container-fluid pt-4 px-4">
     <div class="col-12">
-        <div class="bg-light rounded h-100 p-4">
+        <div style="border:1px solid #ccc" class="bg-white rounded h-100 p-4">
             <div class="navbar-nav w-100">
                 <form action="" method="post">
                     <div class="form-floating" style="width: 50%; margin-left:25%">
-                        <input name="name" value="<?= $data['NotifyName'] ?>" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input name="name" value="<?= $data['NotifyName'] ?>" type="text" class="form-control"
+                            id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">NotifyName</label>
                     </div>
                     <br>
                     <div class="form-floating " style="width: 50%; margin-left:25%">
-                        <input name="content" value="<?= $data['NotifyContent'] ?>" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input name="content" value="<?= $data['NotifyContent'] ?>" type="text" class="form-control"
+                            id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">NotifyContent</label>
                     </div>
                     <br>
-                    
-                    <button name="submit" type="submit" style="width: 15%; margin-left:25%" class="btn btn-secondary">Sửa</button>
+
+                    <button name="submit" type="submit" style="width: 15%; margin-left:25%"
+                        class="btn btn-secondary">Sửa</button>
                 </form>
             </div>
         </div>
