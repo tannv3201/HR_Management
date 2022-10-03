@@ -21,15 +21,15 @@ include('../../header.php');
                             <button type="button" class="btn btn-secondary" style="margin-left: 10px;"><a href="add.php" style="color: white;">Thêm phòng ban</a></button>
                         </div>
                     </thead>
-                    <thead>
+                    <thead >
                         <tr>
-                            <th scope="col">STT </th>
-                            <th scope="col">Mã phòng ban</th>
-                            <th scope="col">Tên phòng ban</th>
-                            <th scope="col">Trạng thái</th>
-                            <th scope="col">Thời gian tạo</th>
-                            <th scope="col">Sửa</th>
-                            <th scope="col">Xóa</th>
+                            <th class="text-center" scope="col">STT </th>
+                            <th class="text-center" scope="col">Mã phòng ban</th>
+                            <th class="text-center" scope="col">Tên phòng ban</th>
+                            <th class="text-center" scope="col">Thời gian tạo</th>
+                            <th class="text-center" scope="col">Trạng thái</th>
+                            <th class="text-center" scope="col">Sửa</th>
+                            <th class="text-center" scope="col">Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,18 +40,24 @@ include('../../header.php');
                         while ($row  = mysqli_fetch_assoc($qr)) {
                         ?>
                             <tr>
-                                <td><?php echo ++$id ?></td>
-                                <td><?= $row['DepartmentCode'] ?></td>
-                                <td><?= $row['DepartmentName'] ?></td>
-                                <td><?php if ($row['DepartmentStatus'] == 1) {
-                                        echo "Actice";
+                                <td class="text-center"  class='id'><?php echo ++$id ?></td>
+                                <td class="text-center"><?= $row['DepartmentCode'] ?></td>
+                                <td class="text-center"><?= $row['DepartmentName'] ?></td>
+                                <td class="text-center"><?= $row['CreateTime'] ?></td>
+                                <td  id=<?= $id ?> style="cursor:pointer" class="status text-center" name_status="<?=$row['DepartmentStatus']?>" >
+                                <?php if ($row['DepartmentStatus'] == 1) {
+                                       ?>
+                                       <i  class="fa-solid fa-lock-open"></i>
+                                       <?php
                                     } else {
-                                        echo "Disable";
+                                       ?>
+                                       <i class="fa-solid fa-lock"></i>
+                                       <?php
                                     }
                                     ?></td>
-                                <td><?= $row['CreateTime'] ?></td>
-                                <th scope="col"><a href="update.php?id=<?= $row['Id'] ?>"><button type="button" class="btn btn-secondary">Sửa</button></a></th>
-                                <th scope="col"><a href="delete.php?id=<?= $row['Id'] ?>"><button type="button" class="btn btn-secondary">Xóa</button></a></th>
+                               
+                                <th  class="text-center"scope="col"><a href="update.php?id=<?= $row['Id'] ?>"><button type="button" class="btn btn-secondary">Sửa</button></a></th>
+                                <th class="text-center" scope="col"><a href="delete.php?id=<?= $row['Id'] ?>"><button type="button" class="btn btn-secondary">Xóa</button></a></th>
                             </tr>
                         <?php
                         }
@@ -66,3 +72,31 @@ include('../../header.php');
 <?php
 include('../../footer.php');
 ?>
+
+<script>
+    $('.fa-solid').click(function() {
+            status = $(this).parent().attr('name_status')
+            id = $(this).parent().attr('id')
+            $.ajax({
+                method: "POST",
+                url: "lock.php",
+                data: {
+                    status: status,
+                    id: id
+                },
+                // success: function(dt) {
+
+                // }
+            })
+            if (status == 0) {
+                        $(this).parent().attr('name_status', "1")
+                        $(this).removeClass("fa-lock")
+                        $(this).addClass("fa-lock-open")
+                    }else{
+                        $(this).parent().attr('name_status', "0")
+                        $(this).addClass("fa-lock")
+                        $(this).removeClass("fa-lock-open")
+                    }
+
+        })
+</script>
