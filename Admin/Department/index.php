@@ -110,14 +110,15 @@ $('.fa-solid').click(function() {
 
         // }
     })
-    if (status == 0) {
+
+    if (status == 1) {
+        $(this).parent().attr('name_status', "2")
+        $(this).addClass("fa-lock")
+        $(this).removeClass("fa-lock-open")
+    } else {
         $(this).parent().attr('name_status', "1")
         $(this).removeClass("fa-lock")
         $(this).addClass("fa-lock-open")
-    } else {
-        $(this).parent().attr('name_status', "0")
-        $(this).addClass("fa-lock")
-        $(this).removeClass("fa-lock-open")
     }
 
 })

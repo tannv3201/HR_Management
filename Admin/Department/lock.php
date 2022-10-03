@@ -6,7 +6,7 @@
         $status = $_POST['status'];
         $id = $_POST['id']; 
         if($status ==1 ){
-            $status_update = 0 ;
+            $status_update = 2 ;
         }else {
             $status_update = 1 ;
         }
