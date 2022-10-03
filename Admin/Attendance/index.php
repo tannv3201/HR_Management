@@ -14,7 +14,7 @@ include('../../header.php');
 <form action="" method="POST" enctype="multipart/form-data">
     <div class="container-fluid pt-4 px-4">
         <div class="col-12">
-            <div class="bg-light rounded h-100 p-4">
+            <div style="border:1px solid #ccc" class="bg-white rounded h-100 p-4">
                 <h3 class="mb-4">Bảng chấm công</h3>
                 <div class="table-responsive" style="height: 400px;">
                     <table class="table">
