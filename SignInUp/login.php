@@ -60,10 +60,10 @@
                                     <label for="floatingPassword">Mật khẩu</label>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
-                            <!-- <div class="form-check">
+                            <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div> -->
+                                <label class="form-check-label" for="exampleCheck1">Lưu thông tin tài khoản</label>
+                            </div>
                             <a href="">Quên mật khẩu</a>
                         </div>
                                 <div class="field button">
