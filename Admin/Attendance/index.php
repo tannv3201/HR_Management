@@ -21,7 +21,7 @@ include('../../header.php');
                         <thead>
                             <div style="display: flex;">
                                 <select type="EmployeeCode" name="EmployeeCode" id="EmployeeCode">
-                                    <option value="">None</option>
+                                    <option value="">Tên nhân viên</option>
                                     <?php 
                                         $sql1 = "SELECT * FROM tb_employee";
                                         $res1 = mysqli_query($conn, $sql1);
@@ -31,18 +31,22 @@ include('../../header.php');
                                             $empName = $row1['EmployeeName'];
 
                                             ?>
-                                                <option value="<?php echo $empCode;?>"><?php echo $empName;?></option>
-                                            <?php
+                                    <option value="<?php echo $empCode;?>"><?php echo $empName;?></option>
+                                    <?php
                                         }
                                     ?>
                                 </select>
                                 <!-- <input type="EmployeeCode" name="EmployeeCode" class="form-control" placeholder="Mã nhân viên" aria-label="Mã nhân viên" aria-describedby="basic-addon2" style="width: 20%; height:40px;"> -->
-                                <button class="btn btn-secondary" style="margin-left: 10px;" name="search" type="search">Tìm kiếm</button>
-                                <button type="button" style="margin-left: 10px;" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">
+                                <button class="btn btn-secondary" style="margin-left: 10px;" name="search"
+                                    type="search">Tìm kiếm</button>
+                                <button type="button" style="margin-left: 10px;" class="btn btn-secondary"
+                                    data-bs-toggle="modal" data-bs-target="#myModal">
                                     Xóa dữ liệu
                                 </button>
-                                
-                                <button class="btn btn-secondary" id="exportExcel" style="margin-left: 10px;" onclick="exportTableToExcel('exportTable', 'Bảng chấm công của nhân viên')">Xuất Excel</button>
+
+                                <button class="btn btn-secondary" id="exportExcel" style="margin-left: 10px;"
+                                    onclick="exportTableToExcel('exportTable', 'Bảng chấm công của nhân viên')">Xuất
+                                    Excel</button>
 
                             </div>
 
@@ -84,29 +88,29 @@ include('../../header.php');
                                     $AttendanceEnd = $row['AttendanceEnd'];
                                     $AttendanceStatus = $row['AttendanceStatus'];
                             ?>
-                                    <tr>
-                                        <th scope="row"><?php echo $id; ?></th>
-                                        <td><?php echo $EmployeeCode; ?></td>
-                                        <td><?php echo $EmployeeName; ?></td>
-                                        <td><?php echo $AttendanceDate; ?></td>
-                                        <td><?php echo $AttendanceStart; ?></td>
-                                        <td><?php echo $AttendanceEnd; ?></td>
-                                        <td><?php
+                            <tr>
+                                <th scope="row"><?php echo $id; ?></th>
+                                <td><?php echo $EmployeeCode; ?></td>
+                                <td><?php echo $EmployeeName; ?></td>
+                                <td><?php echo $AttendanceDate; ?></td>
+                                <td><?php echo $AttendanceStart; ?></td>
+                                <td><?php echo $AttendanceEnd; ?></td>
+                                <td><?php
                                             if ($AttendanceStatus == 1) {
                                                 echo 'Hiệu lực';
                                             } else {
                                                 echo 'Không hiệu lực';
                                             }
                                             ?></td>
-                                    </tr>
-                                <?php
+                            </tr>
+                            <?php
                                 }
                             } else {
                                 ?>
                         </tbody>
                     </table>
                     <p style="width: 100%; text-align: center;">Không tồn tại dữ liệu</p>
-                <?php
+                    <?php
                             }
                 ?>
                 </div>
@@ -145,36 +149,36 @@ include('../../header.php');
 </form>
 
 <script type="text/javascript">
-    function exportTableToExcel(tableID, filename = '') {
-        var downloadLink;
-        var dataType = 'application/vnd.ms-excel';
-        var tableSelect = document.getElementById(tableID);
-        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+function exportTableToExcel(tableID, filename = '') {
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
 
-        // Specify file name
-        filename = filename ? filename + '.xls' : 'excel_data.xls';
+    // Specify file name
+    filename = filename ? filename + '.xls' : 'excel_data.xls';
 
-        // Create download link element
-        downloadLink = document.createElement("a");
+    // Create download link element
+    downloadLink = document.createElement("a");
 
-        document.body.appendChild(downloadLink);
+    document.body.appendChild(downloadLink);
 
-        if (navigator.msSaveOrOpenBlob) {
-            var blob = new Blob(['\ufeff', tableHTML], {
-                type: dataType
-            });
-            navigator.msSaveOrOpenBlob(blob, filename);
-        } else {
-            // Create a link to the file
-            downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    if (navigator.msSaveOrOpenBlob) {
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob(blob, filename);
+    } else {
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
 
-            // Setting the file name
-            downloadLink.download = filename;
+        // Setting the file name
+        downloadLink.download = filename;
 
-            //triggering the function
-            downloadLink.click();
-        }
+        //triggering the function
+        downloadLink.click();
     }
+}
 </script>
 
 <?php

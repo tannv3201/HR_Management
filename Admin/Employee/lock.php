@@ -10,6 +10,6 @@
         }else {
             $status_update = 1 ;
         }
-        $sql = "UPDATE `tb_department` SET  `DepartmentStatus`= $status_update WHERE `Id`=$id";
+        $sql = "UPDATE `tb_employee` SET  `EmployeeStatus`= $status_update WHERE `Id`=$id";
         $qr = mysqli_query($conn,$sql);
    }
