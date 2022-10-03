@@ -20,7 +20,23 @@ include('../../header.php');
                     <table class="table">
                         <thead>
                             <div style="display: flex;">
-                                <input type="EmployeeCode" name="EmployeeCode" class="form-control" placeholder="Mã nhân viên" aria-label="Mã nhân viên" aria-describedby="basic-addon2" style="width: 20%; height:40px;">
+                                <select type="EmployeeCode" name="EmployeeCode" id="EmployeeCode">
+                                    <option value="">None</option>
+                                    <?php 
+                                        $sql1 = "SELECT * FROM tb_employee";
+                                        $res1 = mysqli_query($conn, $sql1);
+
+                                        while ($row1 = mysqli_fetch_assoc($res1)) {
+                                            $empCode = $row1['EmployeeCode'];
+                                            $empName = $row1['EmployeeName'];
+
+                                            ?>
+                                                <option value="<?php echo $empCode;?>"><?php echo $empName;?></option>
+                                            <?php
+                                        }
+                                    ?>
+                                </select>
+                                <!-- <input type="EmployeeCode" name="EmployeeCode" class="form-control" placeholder="Mã nhân viên" aria-label="Mã nhân viên" aria-describedby="basic-addon2" style="width: 20%; height:40px;"> -->
                                 <button class="btn btn-secondary" style="margin-left: 10px;" name="search" type="search">Tìm kiếm</button>
                                 <button type="button" style="margin-left: 10px;" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">
                                     Xóa dữ liệu
