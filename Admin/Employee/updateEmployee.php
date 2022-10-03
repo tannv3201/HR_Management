@@ -93,7 +93,6 @@
                             <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
                                 <select class="form-select" name = "employeestatus"
                                     aria-label="Floating label select example">
-                                    <option selected>Open this select menu</option>
                                     <option value="1">Hoạt động</option>
                                     <option value="2">Không hoạt động</option>
                                 </select>
