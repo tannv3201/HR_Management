@@ -14,22 +14,36 @@ include('../../header.php');
 <form action="" method="POST" enctype="multipart/form-data">
     <div class="container-fluid pt-4 px-4">
         <div class="col-12">
-            <div class="bg-light rounded h-100 p-4">
+            <div style="border:1px solid #ccc" class="bg-white rounded h-100 p-4">
                 <h3 class="mb-4">Bảng chấm công</h3>
                 <div class="table-responsive" style="height: 400px;">
-                    <table class="table">
+                    <table class="table" id="exportTable">
                         <thead>
                             <div style="display: flex;">
-                                <input type="EmployeeCode" name="EmployeeCode" class="form-control" placeholder="Mã nhân viên" aria-label="Mã nhân viên" aria-describedby="basic-addon2" style="width: 20%; height:40px;">
-                                <button class="btn btn-secondary" style="margin-left: 10px;" name="search" type="search">Tìm kiếm</button>
-                                <button class="btn btn-secondary" style="margin-left: 10px;" onclick="window.local.href = 'index.php'">Đặt lại</button>
-                                <!-- <button class="btn btn-secondary" style="margin-left: 10px;">Xóa dữ liệu</button> -->
+                                <select type="EmployeeCode" name="EmployeeCode" id="EmployeeCode">
+                                    <option value="">None</option>
+                                    <?php 
+                                        $sql1 = "SELECT * FROM tb_employee";
+                                        $res1 = mysqli_query($conn, $sql1);
 
+                                        while ($row1 = mysqli_fetch_assoc($res1)) {
+                                            $empCode = $row1['EmployeeCode'];
+                                            $empName = $row1['EmployeeName'];
+
+                                            ?>
+                                                <option value="<?php echo $empCode;?>"><?php echo $empName;?></option>
+                                            <?php
+                                        }
+                                    ?>
+                                </select>
+                                <!-- <input type="EmployeeCode" name="EmployeeCode" class="form-control" placeholder="Mã nhân viên" aria-label="Mã nhân viên" aria-describedby="basic-addon2" style="width: 20%; height:40px;"> -->
+                                <button class="btn btn-secondary" style="margin-left: 10px;" name="search" type="search">Tìm kiếm</button>
                                 <button type="button" style="margin-left: 10px;" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">
                                     Xóa dữ liệu
                                 </button>
+                                
+                                <button class="btn btn-secondary" id="exportExcel" style="margin-left: 10px;" onclick="exportTableToExcel('exportTable', 'Bảng chấm công của nhân viên')">Xuất Excel</button>
 
-                                <!-- <button class="btn btn-secondary" style="margin-left: 45%;" onclick="">Xuất Excel</button> -->
                             </div>
 
                         </thead>
@@ -47,13 +61,12 @@ include('../../header.php');
                         <tbody>
                             <?php
                             if (isset($_POST['search'])) {
-                                if(isset($_POST['EmployeeCode'])) {
                                     $code = $_POST['EmployeeCode'];
-                                    $sql = "SELECT * FROM tb_attendance WHERE AttendanceStatus = 1 AND EmployeeCode ='$code'";
-                                }
-                                else {
-                                    $sql  = "SELECT * FROM tb_attendance WHERE AttendanceStatus = 1";
-                                }
+                                    if($code == "") {
+                                        $sql  = "SELECT * FROM tb_attendance WHERE AttendanceStatus = 1";
+                                    } else {
+                                        $sql = "SELECT * FROM tb_attendance WHERE AttendanceStatus = 1 AND (EmployeeCode = '$code')";
+                                    }
                             } else {
                                 $sql  = "SELECT * FROM tb_attendance WHERE AttendanceStatus = 1";
                             }
@@ -130,6 +143,40 @@ include('../../header.php');
         </div>
     </div>
 </form>
+
+<script type="text/javascript">
+    function exportTableToExcel(tableID, filename = '') {
+        var downloadLink;
+        var dataType = 'application/vnd.ms-excel';
+        var tableSelect = document.getElementById(tableID);
+        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+        // Specify file name
+        filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+        // Create download link element
+        downloadLink = document.createElement("a");
+
+        document.body.appendChild(downloadLink);
+
+        if (navigator.msSaveOrOpenBlob) {
+            var blob = new Blob(['\ufeff', tableHTML], {
+                type: dataType
+            });
+            navigator.msSaveOrOpenBlob(blob, filename);
+        } else {
+            // Create a link to the file
+            downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+            // Setting the file name
+            downloadLink.download = filename;
+
+            //triggering the function
+            downloadLink.click();
+        }
+    }
+</script>
+
 <?php
 include('../../footer.php');
 ?>
