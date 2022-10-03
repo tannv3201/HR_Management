@@ -15,17 +15,17 @@
     <div class="col-12">
         <div class="bg-light rounded h-100 p-4">
             <form action="" method="post">
-                <div class="form-floating" style="width: 50%;">
+                <div class="form-floating"  style="width: 50%; margin-left:25%">
                     <input required name="code" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Mã phòng ban</label>
                 </div>
                 <br>
-                <div class="form-floating " style="width: 50%;">
+                <div class="form-floating "  style="width: 50%; margin-left:25%">
                     <input required name="name" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Tên phòng ban</label>
                 </div>
                 <br>
-                <div class="form-floating " style="width: 50%;">
+                <div class="form-floating "  style="width: 50%; margin-left:25%">
                 <select name="status" class="form-select" aria-label="Default select example" require>
                     <option></option>
                     <option value="1">Hiệu lực</option>
@@ -34,11 +34,13 @@
                 </div>
                 
                 <br>
-                <button name="submit" type="" class="btn btn-secondary">Thêm</button>
+                <button name="submit" type="" style="width: 15%; margin-left:25%"  class="btn btn-secondary">Thêm</button>
             </form>
         </div>
     </div>
 </div>
+  
+
 
 <?php
 if(isset($_POST['submit'])){
