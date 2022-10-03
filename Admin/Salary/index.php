@@ -22,9 +22,7 @@ include('../../header.php');
                             <div style="display: flex;">
                                 <input type="text" name="EmployeeCode" class="form-control" placeholder="Mã nhân viên" aria-label="Mã nhân viên" aria-describedby="basic-addon2" style="width: 20%; height:40px;">
                                 <button class="btn btn-secondary" style="margin-left: 10px;" name="search" type="search">Tìm kiếm</button>
-                                <button class="btn btn-secondary" style="margin-left: 10px;" onclick="window.local.href = 'index.php'">Đặt lại</button>
-                                <!-- <button class="btn btn-secondary" style="margin-left: 10px;">Xóa dữ liệu</button> -->
-
+                                
                                 <button type="button" style="margin-left: 10px;" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal3">
                                     Cập nhật số ngày
                                 </button>
@@ -57,8 +55,13 @@ include('../../header.php');
                         <tbody>
                             <?php
                             if (isset($_POST['search'])) {
+
                                 $code = $_POST['EmployeeCode'];
-                                $sql = "SELECT * FROM tb_salary WHERE SalaryStatus = 1 AND EmployeeCode ='$code'";
+                                if($code == "") {
+                                    $sql  = 'SELECT * FROM tb_salary WHERE SalaryStatus = 1';
+                                } else {
+                                    $sql = "SELECT * FROM tb_salary WHERE SalaryStatus = 1 AND EmployeeCode ='$code'";
+                                }
                             } else {
                                 $sql  = 'SELECT * FROM tb_salary WHERE SalaryStatus = 1';
                             }
