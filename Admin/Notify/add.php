@@ -3,19 +3,30 @@
     include('../../ConnectDatabase/connect.php');
     include('../../header.php');
 ?>
-   <form action="" method="post">
-        <h1 class="container" style="padding: 100px; margin-right: 10px;">Notification adding</h1>
-        <div class="form-floating">
+
+<div class="title" style="padding-top: 30px;padding-left: 30px;padding-right: 30px;">
+    <h1>
+        Thêm thông báo 
+    </h1>
+    <hr>
+    <br>
+</div>
+<div class="container-fluid pt-4 px-4">
+    <div class="col-12">
+        <div class="bg-light rounded h-100 p-4">
+        <form action="" method="post">
+        <div class="form-floating" style="width: 50%;">
             <input required name="name" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">NotifyName</label>
         </div>
         <br>
-        <div class="form-floating ">
+        <div class="form-floating " style="width: 50%;">
             <input required name="content" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">NotifyContent</label>
         </div>
 
         <br>
+        <div class="form-floating " style="width: 50%;">
         <select name="status" class="form-select" aria-label="Default select example">
             <option value="1" selected>Open this select menu</option>
             <?php
@@ -37,9 +48,15 @@
             ?>
 
         </select>
+
+        </div>
         <br>
         <button name="submit" type="" class="btn btn-primary">Thêm</button>
     </form>
+        </div>
+        </div>
+        </div>
+  
 
 </html>
 <?php

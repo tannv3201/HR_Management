@@ -1,6 +1,7 @@
+
 <?php
-include('../../ConnectDatabase/connect.php');
-include('../../header.php');
+    include('../../ConnectDatabase/connect.php');
+    include('../../header.php');
 ?>
 
 <div class="title" style="padding-top: 30px;padding-left: 30px;padding-right: 30px;">
@@ -15,12 +16,12 @@ include('../../header.php');
         <div class="bg-light rounded h-100 p-4">
             <form action="" method="post">
                 <div class="form-floating" style="width: 50%;">
-                    <input required name="code" type="code" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input required name="code" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Mã phòng ban</label>
                 </div>
                 <br>
                 <div class="form-floating " style="width: 50%;">
-                    <input required name="name" type="name" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input required name="name" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Tên phòng ban</label>
                 </div>
                 <br>
@@ -33,27 +34,25 @@ include('../../header.php');
                 </div>
                 
                 <br>
-                <button name="submit" type="submit" class="btn btn-secondary">Thêm</button>
+                <button name="submit" type="" class="btn btn-secondary">Thêm</button>
             </form>
         </div>
     </div>
 </div>
 
-
 <?php
-if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
+if(isset($_POST['submit'])){
     $code = $_POST['code'];
+    $name = $_POST['name'];
     $status = $_POST['status'];
-    $sql_add = "INSERT INTO `tb_department`(`DepartmentCode`, `DepartmentName`, `DepartmentStatus`, `CreateTime`)
-     VALUES ('$code','$name','$status','now()'";
-    $qr_add = mysqli_query($conn, $sql_add);
-    if ($qr_add) {
-        header("Location:index.php");
-    }
+    $sql_add = "INSERT INTO `tb_department`(`Id`, `DepartmentCode`, `DepartmentName`, `DepartmentStatus`, `CreateTime`)
+     VALUES ('','$code','$name','$status',now())";
+     $qr_add = mysqli_query($conn,$sql_add);
+     if($qr_add){
+        header('Location:index.php');
+     }
 }
-
 ?>
 <?php
-include('../../footer.php');
-?>
+   include('../../footer.php');
+   ?>
