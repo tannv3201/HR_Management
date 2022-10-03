@@ -2,9 +2,18 @@
     include('../../ConnectDatabase/connect.php');
     include('../../header.php');
 ?>
-    <div class="col-12">
+     <!-- Table Start -->
+     <div class= "title" style="padding-top:30px; padding-left:30px;padding-right:30px;">
+     <h1 class="mb-2">Quản lý tài khoản</h1>
+     <hr>
+    <br>
+     </div>
+<div style="width:100%; height: 5px; color:black" class="lane"></div>
+     <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Tài khoản</h6>
+                            <h3 class="mb-4">Danh sách tài khoản</h3>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -15,7 +24,6 @@
                                             <button class="btn btn-secondary" style="margin-left: 10px;" onclick="ResetData()">Xóa dữ liệu</button> -->
                                             <!-- <button class="btn btn-secondary" style="margin-left: 45%;" onclick="">Xuất Excel</button> -->
                                         </div>
-
                                     </thead>
                                     <thead>
                                         <tr>
@@ -26,8 +34,8 @@
                                             <th scope="col">Trạng thái</th>
                                         </tr>
                                     </thead>
-                                    <!-- CODE PHP -->
-                                <?php
+                                    <tbody>
+                                    <?php
                                     $sql = "SELECT * FROM `tb_user`";
                                     $res = mysqli_query($conn, $sql);
                                     if($res == TRUE)
@@ -73,10 +81,14 @@
                                         }
                                     }
                                 ?>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <!-- Table End -->
 <?php
     include('../../footer.php');
 ?>
