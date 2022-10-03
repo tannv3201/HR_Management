@@ -17,7 +17,7 @@ include('../../header.php');
             <div style="border:1px solid #ccc" class="bg-white rounded h-100 p-4">
                 <h3 class="mb-4">Bảng chấm công</h3>
                 <div class="table-responsive" style="height: 400px;">
-                    <table class="table">
+                    <table class="table" id="exportTable">
                         <thead>
                             <div style="display: flex;">
                                 <select type="EmployeeCode" name="EmployeeCode" id="EmployeeCode">
@@ -41,8 +41,9 @@ include('../../header.php');
                                 <button type="button" style="margin-left: 10px;" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">
                                     Xóa dữ liệu
                                 </button>
+                                
+                                <button class="btn btn-secondary" id="exportExcel" style="margin-left: 10px;" onclick="exportTableToExcel('exportTable', 'Bảng chấm công của nhân viên')">Xuất Excel</button>
 
-                                <!-- <button class="btn btn-secondary" style="margin-left: 45%;" onclick="">Xuất Excel</button> -->
                             </div>
 
                         </thead>
@@ -142,6 +143,40 @@ include('../../header.php');
         </div>
     </div>
 </form>
+
+<script type="text/javascript">
+    function exportTableToExcel(tableID, filename = '') {
+        var downloadLink;
+        var dataType = 'application/vnd.ms-excel';
+        var tableSelect = document.getElementById(tableID);
+        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+        // Specify file name
+        filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+        // Create download link element
+        downloadLink = document.createElement("a");
+
+        document.body.appendChild(downloadLink);
+
+        if (navigator.msSaveOrOpenBlob) {
+            var blob = new Blob(['\ufeff', tableHTML], {
+                type: dataType
+            });
+            navigator.msSaveOrOpenBlob(blob, filename);
+        } else {
+            // Create a link to the file
+            downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+            // Setting the file name
+            downloadLink.download = filename;
+
+            //triggering the function
+            downloadLink.click();
+        }
+    }
+</script>
+
 <?php
 include('../../footer.php');
 ?>
