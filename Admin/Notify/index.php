@@ -62,12 +62,12 @@ include('../../header.php');
                             <th>
                                 <!-- Button trigger modal -->
                                 <button id="<?= $row['Id'] ?>" type="button" class="btn btn-secondary"
-                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $row['Id'] ?>">
+                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     Chi tiết
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop<?= $row['Id'] ?>" data-bs-backdrop="static"
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-xl">
