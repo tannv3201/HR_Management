@@ -39,12 +39,12 @@
                                                 `EmployeeEmail`='$employeeemail',
                                                 `EmployeePhone`='$employeephone',
                                                 `EmployeeGender`='$employeegender',
-                                                `EmployeeAdress`='$employeeaddress',
+                                                `EmployeeAddress`='$employeeaddress',
                                                 `EmployeeStatus`='$employeestatus',
                                                 `DepartmentCode`='$departmentcode' WHERE EmployeeCode = '$employeecode'";
                                             $res = mysqli_query($conn, $sql);
                                             if($res == true){
-                                                echo 'cc';
+                                                echo '';
                                             }
                                             else{
                                                 header('Location:index.php');
@@ -87,7 +87,7 @@
                                 
                             </div>
                             <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
-                                <input require type="text" class="form-control" name ="employeeaddress" value ="<?php echo $row2['EmployeeAdress'] ?>">
+                                <input require type="text" class="form-control" name ="employeeaddress" value ="<?php echo $row2['EmployeeAddress'] ?>">
                                 <label for="floatingInput">Địa chỉ</label>
                             </div>
                             <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">

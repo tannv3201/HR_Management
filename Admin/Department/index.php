@@ -21,6 +21,7 @@ include('../../header.php');
                             <button type="button" class="btn btn-secondary" style="margin-left: 10px;"><a href="add.php"
                                     style="color: white;">Thêm phòng ban</a></button>
                         </div>
+                        <br>
                     </thead>
                     <thead>
                         <tr>
