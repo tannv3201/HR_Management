@@ -12,21 +12,22 @@ include('../../header.php');
 </div>
 <div class="container-fluid pt-4 px-4">
     <div class="col-12">
-        <div class="bg-light rounded h-100 p-4">
+        <div style="border:1px solid #ccc" class="bg-white rounded h-100 p-4">
             <form action="" method="post">
                 <div class="form-floating" style="width: 50%; margin-left:25%">
-                    <input required name="name" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Tiêu đề</label>
+                    <input required name="name" type="text" class="form-control" id="floatingInput"
+                        placeholder="name@example.com">
+                    <label for="floatingInput">Tiêu đề thông báo</label>
                 </div>
                 <br>
                 <div class="form-floating " style="width: 50%; margin-left:25%">
-                    <textarea required name="content" type="text" class="form-control h-50 d-inline-block" id="floatingInput" placeholder="name@example.com">
-                    </textarea>
-                    <label for="floatingInput">Nội dung</label>
+                    <textarea style="width: 100%; height: 150px;" required name="content" type="text" class="form-control"
+                        id="floatingInput" placeholder="name@example.com"></textarea>
+                    <label for="floatingInput">Nội dung thông báo</label>
                 </div>
 
                 <br>
-                <button name="submit" type=""  style="width: 15%; margin-left:25%" class="btn btn-primary">Thêm</button>
+                <button name="submit" type="" style="width: 15%; margin-left:25%" class="btn btn-primary">Thêm thông báo</button>
             </form>
         </div>
     </div>
