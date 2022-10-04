@@ -54,7 +54,7 @@ include('../../header.php');
                                 <button class="btn btn-secondary" id="exportExcel" style="margin-left: 10px;" onclick="exportTableToExcel('exportTable', 'Bảng lương')">Xuất Excel</button>
 
                             </div>
-
+                            <br>
                         </thead>
                         <thead>
                             <tr>

@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
 ?>
 <div class="title" style="padding-top: 30px;padding-left: 30px;padding-right: 30px;">
     <h1>
-        Sửa phòng ban
+        Cập nhật thông báo
     </h1>
     <hr>
     <br>
@@ -25,16 +25,16 @@ if (isset($_GET['id'])) {
                     <div class="form-floating" style="width: 50%; margin-left:25%">
                         <input name="name" value="<?= $data['NotifyName'] ?>" type="text" class="form-control"
                             id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">NotifyName</label>
+                        <label for="floatingInput">Tiêu đề thông báo</label>
                     </div>
                     <br>
                     <div class="form-floating " style="width: 50%; margin-left:25%">
-                        <input name="content" value="<?= $data['NotifyContent'] ?>" type="text" class="form-control"
-                            id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">NotifyContent</label>
+                        <textarea style="width: 100%; height: 150px;" name="content" 
+                        value="<?= $data['NotifyContent'] ?>" type="text" class="form-control"
+                            id="floatingInput" placeholder="name@example.com"><?php echo $data['NotifyContent'] ?></textarea>
+                        <label for="floatingInput">Nội dung thông báo</label>
                     </div>
                     <br>
-
                     <button name="submit" type="submit" style="width: 15%; margin-left:25%"
                         class="btn btn-secondary">Sửa</button>
                 </form>
