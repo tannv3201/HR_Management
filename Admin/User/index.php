@@ -9,7 +9,6 @@
     <br>
 </div>
 <div style="width:100%; height: 5px; color:black" class="lane"></div>
-<<<<<<< HEAD
      <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-12">
@@ -20,27 +19,7 @@
                                     <thead>
                                         <div style="display: flex;">
                                             <input type="text" name="EmployeeCode" class="form-control" placeholder="Mã nhân viên" aria-label="Mã nhân viên" aria-describedby="basic-addon2" style="width: 20%; height:40px;">
-                                            <button class="btn btn-secondary" style="margin-left: 10px;" name="search" type="search">Tìm kiếm</button>
-                                            <!-- <button class="btn btn-secondary" style="margin-left: 10px;" onclick="window.local.href = 'index.php'">Đặt lại</button>
-=======
-<div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
-        <div class="col-12">
-            <div style="border:1px solid #ccc" class="bg-white rounded h-100 p-4">
-                <h3 class="mb-4">Danh sách tài khoản</h3>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <div style="display: flex;">
-                                <input type="text" name="EmployeeCode" class="form-control" placeholder="Mã nhân viên"
-                                    aria-label="Mã nhân viên" aria-describedby="basic-addon2"
-                                    style="width: 20%; height:40px;">
-                                <button class="btn btn-secondary" style="margin-left: 10px;" name="search"
-                                    type="search">Tìm kiếm</button>
-                                <!-- <button class="btn btn-secondary" style="margin-left: 10px;" onclick="window.local.href = 'index.php'">Đặt lại</button>
->>>>>>> fc6dbe17160e797952fdf086381a19ae6b18382e
-                                            <button class="btn btn-secondary" style="margin-left: 10px;" onclick="ResetData()">Xóa dữ liệu</button> -->
-                                <!-- <button class="btn btn-secondary" style="margin-left: 45%;" onclick="">Xuất Excel</button> -->
+                                            <button class="btn btn-secondary" style="margin-left: 10px;" name="search" type="search">Tìm kiếm</button>                                           
                             </div>
                         </thead>
                         <thead>

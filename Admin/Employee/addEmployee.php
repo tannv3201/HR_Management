@@ -23,16 +23,23 @@
                                         $employeeaddress = $_POST['employeeaddress'];
                                         $employeestatus = $_POST['employeestatus'];
                                         $departmentcode = $_POST['departmentcode'];
+                                        $salarycoefficients = $_POST['salarycoefficients'];
+                                       
 
                                         
                                                 $sql = "INSERT INTO `tb_employee`(`EmployeeCode`, `EmployeeName`, `EmployeeEmail`, `EmployeePhone`, `EmployeeGender`, `EmployeeAdress`, `EmployeeStatus`, `DepartmentCode`) 
-                                                VALUES ('$employeecode','$employeename','$employeeemail','$employeephone','$employeegender','$employeeaddress','$employeestatus','$departmentcode')";
-                                                $sql1= "INSERT INTO `tb_salary`(`EmployeeCode`, `EmployeeName`) 
-                                                VALUES ('$employeecode','$employeename')";
+                                                VALUES ('$employeecode','$employeename','$employeeemail','$employeephone',$employeegender,'$employeeaddress',1,'$departmentcode')";
+                                                $sql1= "INSERT INTO `tb_salary`(`EmployeeCode`, `EmployeeName`, `SalaryCoefficients`, `SalaryStatus`) 
+                                                VALUES ('$employeecode','$employeename', $salarycoefficients, 1)";
+                                                $sql2 = "INSERT INTO `tb_user`( `UserName`, `Password`, `Level`, `status`) 
+                                                VALUES ('$employeecode','$employeecode$employeephone',2, 1)";                                                                       
+                                                                          
                                             $res = mysqli_query($conn, $sql);
-                                            $res1 = mysqli_query($conn,$sql1);                                       
-                                            if($res == true && $res1 == true){
-                                               header('Location:index.php');
+                                            $res1 = mysqli_query($conn,$sql1);
+                                            $res2 = mysqli_query($conn,$sql2);        
+                                                                                
+                                            if($res == true && $res1 == true && $res2 == true){
+                                                header('Location:index.php');
                                             }
                                             else{
                                                 header('Location:index.php');
@@ -78,27 +85,24 @@
                                 <input require type="text" class="form-control" name ="employeeaddress">
                                 <label for="floatingInput">Địa chỉ</label>
                             </div>
-                            <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
-                                <select class="form-select" name = "employeestatus"
-                                    aria-label="Floating label select example">
-                                    <option value="1">Hoạt động</option>
-                                    <option value="2">Không hoạt động</option>
-                                </select>
-                                <label for="floatingSelect">Trạng thái</label>
-                            </div>
-                            <label style ="width: 50%; margin-left:25%"  for="floatingSelect">Phòng ban:</label>                         
                             <div style ="width: 50%; margin-left:25%; margin-top:10px;" class="form-floating mb-3">
-                                <select name="departmentcode" class="typeAccount">
+                                <select name="departmentcode" class="form-select"
+                                    aria-label="Floating label select example">>
                                     <?php
-                                    $sql2 = "SELECT * FROM `tb_department`";
-                                    $res2 = mysqli_query($conn, $sql2);
-                                    if (mysqli_num_rows($res2)) {
-                                        while ($row2 = mysqli_fetch_assoc($res2)) {
-                                            echo '<option value="' . $row2['Id'] . '">' . $row2['DepartmentName'] . '</option>';
+                                    $sql3 = "SELECT * FROM `tb_department`";
+                                    $res3 = mysqli_query($conn, $sql3);
+                                    if (mysqli_num_rows($res3)) {
+                                        while ($row3 = mysqli_fetch_assoc($res3)) {
+                                            echo '<option value="' . $row3['DepartmentCode'] . '">' . $row3['DepartmentName'] . '</option>';
                                         }
                                     }
                                     ?>
                                 </select>
+                                <label for="floatingSelect">Phòng ban</label>
+                            </div>
+                            <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
+                                <input require type="text" class="form-control" name ="salarycoefficients">
+                                <label for="floatingInput">Hệ số lương</label>
                             </div>
                             <br>
                             <button name = "submit" style ="margin-left:43%" type="submit" class="btn btn-primary m-6">Thêm</button>
