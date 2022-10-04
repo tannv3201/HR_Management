@@ -51,7 +51,7 @@ include('../../header.php');
                                         echo "Disable";
                                     }
                                     ?></td>
-                                <th scope="col"><a href="update.php?id=<?= $row['Id'] ?>"><button type="button" class="btn btn-secondary">Sửa</button></a></th>
+                                <th scope="col"><a href="update.php?id=<?= $row['Id'] ?>&status=<?=$row['NotifyStatus']?>"><button type="button" class="btn btn-secondary">Sửa</button></a></th>
                                 <th scope="col"><a href="delete.php?id=<?= $row['Id'] ?>"><button type="button" class="btn btn-secondary">Xóa</button></a></th>
                                 <th>
                                     <!-- Button trigger modal -->
