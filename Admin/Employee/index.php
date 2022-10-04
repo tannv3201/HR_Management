@@ -14,7 +14,7 @@
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-12">
-            <div class="bg-light rounded h-100 p-4">
+            <div style="border:1px solid #ccc" class="bg-white rounded h-100 p-4" class="bg-light rounded h-100 p-4">
                 <h3 class="mb-4">Danh sách nhân viên</h3>
                 <div class="table-responsive">
                     <table class="table">
@@ -51,7 +51,7 @@
                                 <th scope="col">Mã phòng ban</th>
                                 <th scope="col">Chi tiết</th>
                                 <th scope="col">Sửa</th>
-                                <th scope="col">Xóa</th>
+                                <!-- <th scope="col">Xóa</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -88,15 +88,14 @@
                                 <td><?php echo $employeecode;?></td>
                                 <td><?php echo $employeename; ?></td>
                                 <td><?php 
-                                                            if($employeestatus == 1){
-                                                                echo '<a href ="deleteEmployee.php?EmployeeCode=echo $employeecode;" type="button" class="btn btn-square btn-outline-success m-2"><i class="fa fa-unlock"></i></a>';
-                                                            }
-                                                            if($employeestatus == 2){
-                                                                echo '<a href ="deleteEmployee.php?EmployeeCode=<?php echo $employeecode;?>"
-                                    type="button" class="btn btn-square btn-outline-dark m-2"><i
-                                        class="fa fa-lock"></i></a>';
-                                    }
-                                    ?></td>
+                                    if($employeestatus == 1){ ?>
+                                       <a href ="deleteEmployee.php?EmployeeCode=<?php echo $employeecode?>" type="button" class="btn btn-square btn-outline-success m-2"><i class="fa fa-unlock"></i></a>
+                                    <?php }
+                                    if($employeestatus == 2){ ?>
+                                        <a href ="deleteEmployee.php?EmployeeCode=<?php echo $employeecode?>" type="button" class="btn btn-square btn-outline-dark m-2"><i class="fa fa-lock"></i></a>
+                                   <?php }
+                                    ?>
+                                </td>
                                 <td><?php echo $departmentcode; ?></td>
                                 <td>
                                     <a class="btn btn-square btn-outline-primary m-2" id="<?= $row['Id']?>"
@@ -139,21 +138,21 @@
                                                                 <div style="width: 50%; margin-left:25%"
                                                                     class="form-floating mb-3">
                                                                     <input require type="text" class="form-control"
-                                                                        name="employeename"
+                                                                        name="employeename" readonly
                                                                         value="<?php echo $row2['EmployeeName'] ?>">
                                                                     <label for="floatingPassword">Tên nhân viên</label>
                                                                 </div>
                                                                 <div style="width: 50%; margin-left:25%"
                                                                     class="form-floating mb-3">
                                                                     <input require type="text" class="form-control"
-                                                                        name="employeeemail"
+                                                                        name="employeeemail" readonly
                                                                         value="<?php echo $row2['EmployeeEmail'] ?>">
                                                                     <label for="floatingInput">Email</label>
                                                                 </div>
                                                                 <div style="width: 50%; margin-left:25%"
                                                                     class="form-floating mb-3">
                                                                     <input require type="text" class="form-control"
-                                                                        name="employeephone"
+                                                                        name="employeephone" readonly
                                                                         value="<?php echo $row2['EmployeePhone'] ?>">
                                                                     <label for="floatingInput">Số điện thoại</label>
                                                                 </div>
@@ -161,28 +160,28 @@
                                                                 <div style="width: 50%; margin-left:25%"
                                                                     class="form-floating mb-3">
                                                                     <input require type="text" class="form-control"
-                                                                        name="employeegender"
+                                                                        name="employeegender" readonly
                                                                         value="<?php if( $row2['EmployeeGender'] == 1){ echo 'Nam';} else if( $row2['EmployeeGender'] == 2){ echo 'Nữ';}?>">
                                                                     <label for="floatingInput">Giới tính</label>
                                                                 </div>
                                                                 <div style="width: 50%; margin-left:25%"
                                                                     class="form-floating mb-3">
                                                                     <input require type="text" class="form-control"
-                                                                        name="employeeaddress"
+                                                                        name="employeeaddress" readonly
                                                                         value="<?php  echo $row2['EmployeeAdress'] ?>">
                                                                     <label for="floatingInput">Địa chỉ</label>
                                                                 </div>
                                                                 <div style="width: 50%; margin-left:25%"
                                                                     class="form-floating mb-3">
                                                                     <input require type="text" class="form-control"
-                                                                        name="employeeaddress"
+                                                                        name="employeeaddress" readonly
                                                                         value="<?php if( $row2['EmployeeStatus'] == 1){ echo 'Hoạt động';} else if( $row2['EmployeeStatus'] == 2){ echo 'Không hoạt động';} ?>">
                                                                     <label for="floatingInput">Trạng thái</label>
                                                                 </div>
                                                                 <div style="width: 50%; margin-left:25%"
                                                                     class="form-floating mb-3">
                                                                     <input require type="text" class="form-control"
-                                                                        name="departmentcode"
+                                                                        name="departmentcode" readonly
                                                                         value="<?php echo $row2['DepartmentCode'] ?>">
                                                                     <label for="floatingInput">Phòng ban</label>
                                                                 </div>
@@ -200,8 +199,6 @@
                                 <!-- <td><a type="button" class="btn btn-square btn-outline-primary m-2"><i class="fa fa-eye"></i></a></td>                                                                                                       -->
                                 <td><a href="updateEmployee.php?EmployeeCode=<?php echo $employeecode; ?>" type="button"
                                         class="btn btn-outline-warning m-2">Sửa</a></td>
-                                <td><a href="deleteEmployee.php?EmployeeCode=<?php echo $employeecode; ?>" type="button"
-                                        class="btn btn-outline-danger m-2">Xóa</a></td>
                             </tr>
                             <?php
                                             }
@@ -222,9 +219,6 @@
 
 
 <!-- Table End -->
-<?php
-    include('../../footer.php');
-?>
 <?php
     include('../../footer.php');
 ?>

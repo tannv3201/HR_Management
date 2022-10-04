@@ -21,7 +21,7 @@ include('../../header.php');
                         <thead>
                             <div style="display: flex;">
                                 <select type="EmployeeCode" name="EmployeeCode" id="EmployeeCode">
-                                    <option value="">None</option>
+                                    <option value="">Tên nhân viên</option>
                                     <?php 
                                         $sql1 = "SELECT * FROM tb_employee";
                                         $res1 = mysqli_query($conn, $sql1);
