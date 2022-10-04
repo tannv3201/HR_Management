@@ -12,9 +12,7 @@ if (isset($_GET['id'])) {
 ?>
 <div class="title" style="padding-top: 30px;padding-left: 30px;padding-right: 30px;">
     <h1>
-
         Cập nhật thông báo
-
     </h1>
     <hr>
     <br>
@@ -25,7 +23,6 @@ if (isset($_GET['id'])) {
             <div class="navbar-nav w-100">
                 <form action="" method="post">
                     <div class="form-floating" style="width: 50%; margin-left:25%">
-
                         <input name="name" value="<?= $data['NotifyName'] ?>" type="text" class="form-control"
                             id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">Tiêu đề thông báo</label>
@@ -55,17 +52,12 @@ if (isset($_GET['id'])) {
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $content = $_POST['content'];
-    $status = $_GET['status'];
-    if($status ==1  ){
-        $status_up = 1;
-    }else {
-        $status_up =2 ;
-    }
+    $status = $_POST['status'];
     $sql_u = "UPDATE `tb_notify` SET 
     `NotifyName`='$name',
     `NotifyContent`='$content',
     `CreateTime`= now(),
-    `NotifyStatus`='$status_up' 
+    `NotifyStatus`='$status' 
     WHERE Id = $id";
     $qr_u = mysqli_query($conn, $sql_u);
     if ($qr_u) {
