@@ -97,13 +97,13 @@
                                 <label for="floatingInput">Địa chỉ</label>
                             </div>
                             <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
-                                <select class="form-select" name = "employeestatus"
-                                    aria-label="Floating label select example">
-                                    <option value="1">Hoạt động</option>
-                                    <option value="2">Không hoạt động</option>
-                                </select>
-                                <label for="floatingSelect">Trạng thái</label>
-                            </div>                        
+                                <input require type="text" class="form-control" name ="employeeaddress" readonly value="<?php if ($row2['EmployeeStatus'] == 1) {
+                                                                                                                                                                                echo 'Hoạt động';
+                                                                                                                                                                            } else if ($row2['EmployeeStatus'] == 2) {
+                                                                                                                                                                                echo 'Không hoạt động';
+                                                                                                                                                                            } ?>">
+                                <label for="floatingInput">Trạng thái</label>
+                            </div>                   
                             <div style ="width: 50%; margin-left:25%; margin-top:10px;" class="form-floating mb-3">
                                 <select name="departmentcode" class="form-select" name = "employeestatus"
                                     aria-label="Floating label select example">
