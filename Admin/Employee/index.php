@@ -35,7 +35,7 @@ include('../../header.php');
                                         }
                                         ?>
                                     </select>
-                                    <select type="EmployeeStatus" name="EmployeeStatus" id="EmployeeStatus">
+                                    <select type="EmployeeStatus" name="EmployeeStatus" id="EmployeeStatus" style="margin-left:8px">
                                         <option value="">Trạng thái</option>
                                         <option value="1">Hoạt động</option>
                                         <option value="2">Không hoạt động</option>
