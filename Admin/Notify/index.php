@@ -55,7 +55,7 @@ include('../../header.php');
                                 <th scope="col"><a href="delete.php?id=<?= $row['Id'] ?>"><button type="button" class="btn btn-secondary">Xóa</button></a></th>
                                 <th>
                                     <!-- Button trigger modal -->
-                                    <button id="<?= $row['Id'] ?>" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $row['Id'] ?>">
+                                    <button id="<?= $row['Id'] ?>" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                         Chi tiết
                                     </button>
 

@@ -56,7 +56,7 @@ include('../../header.php');
                                     }
                                     ?></td>
                                
-                                <th  class="text-center"scope="col"><a href="update.php?id=<?= $row['Id'] ?>"><button type="button" class="btn btn-secondary">Sửa</button></a></th>
+                                <th  class="text-center"scope="col"><a href="update.php?id=<?= $row['Id'] ?>&status=<?=$row['DepartmentStatus']?>"><button type="button" class="btn btn-secondary">Sửa</button></a></th>
                                 <th class="text-center" scope="col"><a href="delete.php?id=<?= $row['Id'] ?>"><button type="button" class="btn btn-secondary">Xóa</button></a></th>
                             </tr>
                         <?php
