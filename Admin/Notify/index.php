@@ -55,16 +55,16 @@ include('../../header.php');
                                 <i class="fa-solid fa-lock"></i>
                                 <?php
                                     }
-                                    ?>
-                            </td>
-                            <th scope="col"><a href="update.php?id=<?= $row['Id'] ?>"><button type="button"
-                                        class="btn btn-secondary">Sửa</button></a></th>
-                            <th>
-                                <!-- Button trigger modal -->
-                                <button id="<?= $row['Id'] ?>" type="button" class="btn btn-secondary"
-                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $row['Id'] ?>">
-                                    Chi tiết
-                                </button>
+
+                                    ?></td>
+                                <th scope="col"><a href="update.php?id=<?= $row['Id'] ?>&status=<?=$row['NotifyStatus']?>"><button type="button" class="btn btn-secondary">Sửa</button></a></th>
+                                <th scope="col"><a href="delete.php?id=<?= $row['Id'] ?>"><button type="button" class="btn btn-secondary">Xóa</button></a></th>
+                                <th>
+                                    <!-- Button trigger modal -->
+                                    <button id="<?= $row['Id'] ?>" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        Chi tiết
+                                    </button>
+
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="staticBackdrop<?= $row['Id'] ?>" data-bs-backdrop="static"
