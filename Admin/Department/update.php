@@ -47,11 +47,10 @@ if (isset($_GET['id'])) {
 if (isset($_POST['submit'])) {
     $code = $_POST['code'];
     $name = $_POST['name'];
-    $status = $_POST['status'];
+    $status = $_GET['status'];
     $sql_u = "UPDATE `tb_department` SET 
     `DepartmentCode`='$code',
     `DepartmentName`='$name',
-    `DepartmentStatus`=1,
     `CreateTime`=  now()
      WHERE `Id` = $id";
     $qr_u = mysqli_query($conn, $sql_u);
