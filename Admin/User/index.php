@@ -12,7 +12,7 @@
      <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-12">
-                        <div class="bg-light rounded h-100 p-4">
+                        <div style="border:1px solid #ccc" class="bg-white rounded h-100 p-4" class="bg-light rounded h-100 p-4">
                             <h3 class="mb-4">Danh sách tài khoản</h3>
                             <div class="table-responsive">
                                 <table class="table">

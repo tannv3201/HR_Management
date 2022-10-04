@@ -32,7 +32,7 @@
                                             $res = mysqli_query($conn, $sql);
                                             $res1 = mysqli_query($conn,$sql1);                                       
                                             if($res == true && $res1 == true){
-                                                echo 'cc';
+                                               header('Location:index.php');
                                             }
                                             else{
                                                 header('Location:index.php');
@@ -86,9 +86,19 @@
                                 </select>
                                 <label for="floatingSelect">Trạng thái</label>
                             </div>
-                            <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
-                                <input require type="text" class="form-control" name ="departmentcode">
-                                <label for="floatingInput">Phòng ban</label>
+                            <label style ="width: 50%; margin-left:25%"  for="floatingSelect">Phòng ban:</label>                         
+                            <div style ="width: 50%; margin-left:25%; margin-top:10px;" class="form-floating mb-3">
+                                <select name="departmentcode" class="typeAccount">
+                                    <?php
+                                    $sql2 = "SELECT * FROM `tb_department`";
+                                    $res2 = mysqli_query($conn, $sql2);
+                                    if (mysqli_num_rows($res2)) {
+                                        while ($row2 = mysqli_fetch_assoc($res2)) {
+                                            echo '<option value="' . $row2['Id'] . '">' . $row2['DepartmentName'] . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
                             </div>
                             <br>
                             <button name = "submit" style ="margin-left:43%" type="submit" class="btn btn-primary m-6">Thêm</button>

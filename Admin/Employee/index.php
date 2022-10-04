@@ -178,13 +178,7 @@
                                                                         value="<?php if( $row2['EmployeeStatus'] == 1){ echo 'Hoạt động';} else if( $row2['EmployeeStatus'] == 2){ echo 'Không hoạt động';} ?>">
                                                                     <label for="floatingInput">Trạng thái</label>
                                                                 </div>
-                                                                <div style="width: 50%; margin-left:25%"
-                                                                    class="form-floating mb-3">
-                                                                    <input require type="text" class="form-control"
-                                                                        name="departmentcode" readonly
-                                                                        value="<?php echo $row2['DepartmentCode'] ?>">
-                                                                    <label for="floatingInput">Phòng ban</label>
-                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
