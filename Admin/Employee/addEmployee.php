@@ -81,7 +81,6 @@
                             <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
                                 <select class="form-select" name = "employeestatus"
                                     aria-label="Floating label select example">
-                                    <option selected>Open this select menu</option>
                                     <option value="1">Hoạt động</option>
                                     <option value="2">Không hoạt động</option>
                                 </select>
@@ -93,9 +92,6 @@
                             </div>
                             <br>
                             <button name = "submit" style ="margin-left:43%" type="submit" class="btn btn-primary m-6">Thêm</button>
-                            <button type="button" style="margin-left: 10px;" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal3">
-                                    Cập nhật số ngày
-                                </button>
                             <a href="http://localhost/HR_Management/Admin/Employee/index.php" class="btn btn-secondary m-6">Hủy bỏ</a>
                             </form>
                         </div>  
