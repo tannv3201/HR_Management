@@ -19,7 +19,10 @@
                                 }
                                 $sql2 = "SELECT * FROM `tb_employee` WHERE EmployeeCode = '$employeecode1'";
                                 $res2 = mysqli_query($conn,$sql2);
-                                $row2 = mysqli_fetch_assoc($res2);                               
+                                $row2 = mysqli_fetch_assoc($res2);      
+                                $sql4 = "SELECT * FROM `tb_salary` WHERE EmployeeCode = '$employeecode1'";
+                                $res4 = mysqli_query($conn,$sql4);
+                                $row4 = mysqli_fetch_assoc($res4);                               
                                 
                             ?>
                             <!-- INSERT -->
@@ -33,18 +36,21 @@
                                         $employeeaddress = $_POST['employeeaddress'];
                                         $employeestatus = $_POST['employeestatus'];
                                         $departmentcode = $_POST['departmentcode'];
+                                        $salarycoefficients = $_POST['salarycoefficients'];
 
                                                 $sql = "UPDATE `tb_employee` SET
                                                 `EmployeeName`='$employeename',
                                                 `EmployeeEmail`='$employeeemail',
                                                 `EmployeePhone`='$employeephone',
                                                 `EmployeeGender`='$employeegender',
-                                                `EmployeeAddress`='$employeeaddress',
+                                                `EmployeeAdress`='$employeeaddress',
                                                 `EmployeeStatus`='$employeestatus',
                                                 `DepartmentCode`='$departmentcode' WHERE EmployeeCode = '$employeecode'";
+                                                $sql3 = "UPDATE `tb_salary` SET `SalaryCoefficients`=  $salarycoefficients WHERE EmployeeCode = '$employeecode'";
+                                            $res3 = mysqli_query($conn,$sql3);
                                             $res = mysqli_query($conn, $sql);
-                                            if($res == true){
-                                                echo '';
+                                            if($res == true && $res3 ==true){
+                                                header('Location:index.php');
                                             }
                                             else{
                                                 header('Location:index.php');
@@ -87,20 +93,36 @@
                                 
                             </div>
                             <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
-                                <input require type="text" class="form-control" name ="employeeaddress" value ="<?php echo $row2['EmployeeAddress'] ?>">
+                                <input require type="text" class="form-control" name ="employeeaddress" value ="<?php echo $row2['EmployeeAdress'] ?>" >
                                 <label for="floatingInput">Địa chỉ</label>
                             </div>
                             <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
-                                <select class="form-select" name = "employeestatus"
+                                <input require type="text" class="form-control" name ="employeeaddress" readonly value="<?php if ($row2['EmployeeStatus'] == 1) {
+                                                                                                                                                                                echo 'Hoạt động';
+                                                                                                                                                                            } else if ($row2['EmployeeStatus'] == 2) {
+                                                                                                                                                                                echo 'Không hoạt động';
+                                                                                                                                                                            } ?>">
+                                <label for="floatingInput">Trạng thái</label>
+                            </div>                   
+                            <div style ="width: 50%; margin-left:25%; margin-top:10px;" class="form-floating mb-3">
+                                <select name="departmentcode" class="form-select" name = "employeestatus"
                                     aria-label="Floating label select example">
-                                    <option value="1">Hoạt động</option>
-                                    <option value="2">Không hoạt động</option>
+                                    <?php
+                                    $sql2 = "SELECT * FROM `tb_department`";
+                                    $res2 = mysqli_query($conn, $sql2);
+                                    if (mysqli_num_rows($res2)) {
+                                        while ($row2 = mysqli_fetch_assoc($res2)) {
+                                            echo '<option value="' . $row2['DepartmentCode'] . '">' . $row2['DepartmentName'] . '</option>';
+                                        }
+                                    }
+                                    ?>
                                 </select>
                                 <label for="floatingSelect">Trạng thái</label>
+                           
                             </div>
                             <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
-                                <input require type="text" class="form-control" name ="departmentcode" value ="<?php echo $row2['DepartmentCode'] ?>">
-                                <label for="floatingInput">Phòng ban</label>
+                                <input require type="text" class="form-control" name ="salarycoefficients" value ="<?php echo $row4['SalaryCoefficients'] ?>">
+                                <label for="floatingInput">Hệ số lương</label>
                             </div>
                             <br>
                             <button name = "submit" style ="margin-left:43%" type="submit" class="btn btn-primary m-6">Cập nhật</button>

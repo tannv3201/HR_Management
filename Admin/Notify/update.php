@@ -56,8 +56,7 @@ if (isset($_POST['submit'])) {
     $sql_u = "UPDATE `tb_notify` SET 
     `NotifyName`='$name',
     `NotifyContent`='$content',
-    `CreateTime`= now(),
-    `NotifyStatus`='$status' 
+    `CreateTime`= now()
     WHERE Id = $id";
     $qr_u = mysqli_query($conn, $sql_u);
     if ($qr_u) {

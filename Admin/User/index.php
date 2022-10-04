@@ -9,23 +9,31 @@
     <br>
 </div>
 <div style="width:100%; height: 5px; color:black" class="lane"></div>
-<div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
-        <div class="col-12">
-            <div style="border:1px solid #ccc" class="bg-white rounded h-100 p-4">
-                <h3 class="mb-4">Danh sách tài khoản</h3>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <div style="display: flex;">
-                                <input type="text" name="EmployeeCode" class="form-control" placeholder="Mã nhân viên"
-                                    aria-label="Mã nhân viên" aria-describedby="basic-addon2"
-                                    style="width: 20%; height:40px;">
-                                <button class="btn btn-secondary" style="margin-left: 10px;" name="search"
-                                    type="search">Tìm kiếm</button>
-                                <!-- <button class="btn btn-secondary" style="margin-left: 10px;" onclick="window.local.href = 'index.php'">Đặt lại</button>
-                                            <button class="btn btn-secondary" style="margin-left: 10px;" onclick="ResetData()">Xóa dữ liệu</button> -->
-                                <!-- <button class="btn btn-secondary" style="margin-left: 45%;" onclick="">Xuất Excel</button> -->
+<form action="" method="POST" enctype="multipart/form-data">
+     <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div style="border:1px solid #ccc" class="bg-white rounded h-100 p-4" class="bg-light rounded h-100 p-4">
+                            <h3 class="mb-4">Danh sách tài khoản</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <div style="display: flex;">
+                                        <select type="UserName" name="UserName" id="UserName">
+                                            <option value="">Mã nhân viên</option>
+                                            <?php 
+                                                $sql1 = "SELECT * FROM tb_user";
+                                                $res1 = mysqli_query($conn, $sql1);
+
+                                                while ($row1 = mysqli_fetch_assoc($res1)) {
+                                                    $name = $row1['UserName'];                                                  
+                                                    ?>
+                                            <option value="<?php echo $name;?>"><?php echo $name;?></option>
+                                            <?php
+                                                }
+                                            ?>
+                                        </select>
+                                        <button class="btn btn-secondary" style="margin-left: 10px;" name="search" type="search">Tìm kiếm</button>                                           
                             </div>
                         </thead>
                         <thead>
@@ -39,7 +47,16 @@
                         </thead>
                         <tbody>
                             <?php
-                                    $sql = "SELECT * FROM `tb_user`";
+                                    if (isset($_POST['search'])) {
+                                            $code = $_POST['UserName'];
+                                            if($code == "") {
+                                                $sql  = "SELECT * FROM tb_user WHERE status = 1";
+                                            } else {
+                                                $sql = "SELECT * FROM tb_user WHERE UserName = '$code'";
+                                            }
+                                    } else {
+                                        $sql  = "SELECT * FROM tb_user";
+                                    }
                                     $res = mysqli_query($conn, $sql);
                                     if($res == TRUE)
                                     {
@@ -91,6 +108,7 @@
         </div>
     </div>
 </div>
+</form>
 <!-- Table End -->
 <?php
     include('../../footer.php');
