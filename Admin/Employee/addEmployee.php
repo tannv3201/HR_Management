@@ -30,7 +30,7 @@
                                                 $sql = "INSERT INTO `tb_employee`(`EmployeeCode`, `EmployeeName`, `EmployeeEmail`, `EmployeePhone`, `EmployeeGender`, `EmployeeAdress`, `EmployeeStatus`, `DepartmentCode`) 
                                                 VALUES ('$employeecode','$employeename','$employeeemail','$employeephone',$employeegender,'$employeeaddress',1,'$departmentcode')";
                                                 $sql1= "INSERT INTO `tb_salary`(`EmployeeCode`, `EmployeeName`, `SalaryCoefficients`, `SalaryStatus`) 
-                                                VALUES ('$employeecode','$employeename', $salarycoefficients, 1)";
+                                                VALUES ('$employeecode','$employeename',$salarycoefficients, 1)";
                                                 $sql2 = "INSERT INTO `tb_user`( `UserName`, `Password`, `Level`, `status`) 
                                                 VALUES ('$employeecode','$employeecode$employeephone',2, 1)";                                                                       
                                                                           

@@ -163,7 +163,7 @@ include('../../header.php');
                                                                                                                                                                             } else if ($row2['EmployeeStatus'] == 2) {
                                                                                                                                                                                 echo 'Không hoạt động';
                                                                                                                                                                             } ?>">
-                                                                                    <label for="floatingInput">Trạng thái</label>
+                                                                                <label for="floatingInput">Trạng thái</label>
                                                                                 </div>
                                                                                 <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
                                                                                     <input readonly          type="text" class="form-control" name ="salarycoefficients" value ="<?php echo $row4['SalaryCoefficients'] ?>">
