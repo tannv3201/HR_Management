@@ -44,11 +44,7 @@
                                                 `DepartmentCode`='$departmentcode' WHERE EmployeeCode = '$employeecode'";
                                             $res = mysqli_query($conn, $sql);
                                             if($res == true){
-<<<<<<< HEAD
                                                 header('Location:index.php');
-=======
-                                                echo '';
->>>>>>> fc6dbe17160e797952fdf086381a19ae6b18382e
                                             }
                                             else{
                                                 header('Location:index.php');
