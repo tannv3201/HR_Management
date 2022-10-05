@@ -1,5 +1,4 @@
-<?php
-
+<?php  
     include('../../header.php');
 ?>
 
@@ -34,7 +33,6 @@
                                         $employeephone = $_POST['employeephone'];
                                         $employeegender = $_POST['employeegender'];
                                         $employeeaddress = $_POST['employeeaddress'];
-                                        $employeestatus = $_POST['employeestatus'];
                                         $departmentcode = $_POST['departmentcode'];
                                         $salarycoefficients = $_POST['salarycoefficients'];
 
@@ -44,12 +42,11 @@
                                                 `EmployeePhone`='$employeephone',
                                                 `EmployeeGender`='$employeegender',
                                                 `EmployeeAdress`='$employeeaddress',
-                                                `EmployeeStatus`='$employeestatus',
                                                 `DepartmentCode`='$departmentcode' WHERE EmployeeCode = '$employeecode'";
                                                 $sql3 = "UPDATE `tb_salary` SET `SalaryCoefficients`=  $salarycoefficients WHERE EmployeeCode = '$employeecode'";
                                             $res3 = mysqli_query($conn,$sql3);
                                             $res = mysqli_query($conn, $sql);
-                                            if($res == true && $res3 ==true){
+                                            if($res == true || $res3 ==true){
                                                 header('Location:index.php');
                                             }
                                             else{
@@ -97,7 +94,7 @@
                                 <label for="floatingInput">Địa chỉ</label>
                             </div>
                             <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
-                                <input require type="text" class="form-control" name ="employeeaddress" readonly value="<?php if ($row2['EmployeeStatus'] == 1) {
+                                <input require type="text" class="form-control" name ="employstatus" readonly value="<?php if ($row2['EmployeeStatus'] == 1) {
                                                                                                                                                                                 echo 'Hoạt động';
                                                                                                                                                                             } else if ($row2['EmployeeStatus'] == 2) {
                                                                                                                                                                                 echo 'Không hoạt động';

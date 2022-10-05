@@ -1,5 +1,13 @@
 <?php
+    session_start();
     include('../header.php');
+    if(!isset($_SESSION['id_adminSession'])) //nếu chưa đăng nhập thì ra ngoài
+    {
+        header("Location:../index.php");
+    }if(!isset($_SESSION['id_adminSession'])) //nếu chưa đăng nhập thì ra ngoài
+    {
+        header("Location:../index.php");
+    }
 ?>
 <div>
     <!-- Sale & Revenue Start -->
