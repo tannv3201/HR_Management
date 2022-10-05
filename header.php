@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php ob_start(); ?>
+<?php 
+    session_start();
+    include('ConnectDatabase/connect.php');
+    $iduser = $_SESSION['id_adminSession'];
+    // include('connect_database/connect.php');
+    if(!isset($_SESSION['id_adminSession'])) //nếu chưa đăng nhập thì ra ngoài
+    {
+        header("Location:index.php");
+    }
+?>
 
 <head>
     <meta charset="utf-8">

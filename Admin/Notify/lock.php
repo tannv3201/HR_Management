@@ -1,5 +1,5 @@
 <?php
-   include('../../ConnectDatabase/connect.php');
+
    include('../../header.php');
 
    if(isset($_POST['status'])){

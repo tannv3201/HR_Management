@@ -1,6 +1,14 @@
 <?php
+<<<<<<< HEAD
+    include('../header.php');
+    if(!isset($_SESSION['id_adminSession'])) //nếu chưa đăng nhập thì ra ngoài
+    {
+        header("Location:./index.php");
+    }
+=======
 include('../ConnectDatabase/connect.php');
 include('../header.php');
+>>>>>>> a063b8c4495a3e269d9ba44fd278138f31b268cd
 ?>
 <div>
     <!-- Sale & Revenue Start -->
