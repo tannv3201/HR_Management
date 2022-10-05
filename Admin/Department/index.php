@@ -60,7 +60,7 @@ include('../../header.php');
                                 ?>
                             </td>
                             <td class="text-center"><?= $row['CreateTime'] ?></td>
-                            <td id=<?= $id ?> style="cursor:pointer" class="status text-center"
+                            <td id=<?= $row['Id'] ?> style="cursor:pointer" class="status text-center"
                                 name_status="<?=$row['DepartmentStatus']?>">
                                 <?php if ($row['DepartmentStatus'] == 1) {
                                        ?>
@@ -74,7 +74,7 @@ include('../../header.php');
                                     ?>
                             </td>
 
-                            <th class="text-center" scope="col"><a href="update.php?id=<?= $row['Id'] ?>"><button
+                            <th class="text-center" scope="col"><a href="update.php?id=<?= $row['Id'] ?>&status=<?=$row['DepartmentStatus']?>"><button
                                         type="button" class="btn btn-secondary">Sửa</button></a>
                             </th>
                             <!-- <th class="text-center" scope="col"><a href="delete.php?id=<?= $row['Id'] ?>"><button
@@ -99,16 +99,15 @@ include('../../footer.php');
 $('.fa-solid').click(function() {
     status = $(this).parent().attr('name_status')
     id = $(this).parent().attr('id')
-    $.ajax({
+    $.ajax({    
         method: "POST",
         url: "lock.php",
         data: {
             status: status,
             id: id
-        },
-        // success: function(dt) {
-
-        // }
+        },success:function(dt){
+            console.log(dt)
+        }
     })
 
     if (status == 1) {
