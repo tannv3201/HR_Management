@@ -1,6 +1,5 @@
 <?php
 
-include('../../ConnectDatabase/connect.php');
 include('../../header.php');
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/js/bootstrap.min.js">

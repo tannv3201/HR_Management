@@ -16,10 +16,10 @@ loginBtn.onclick = () => {
                 let data = xhr.response;
                 console.log(data);
                 if(data == "admin"){  
-                    location.href = "../Admin/index.php";
+                    location.href = "./Admin/index.php";
                 }
                 if(data == "emloyee"){  
-                    location.href = "../Emloyee/index.php";
+                    location.href = "./Emloyee/index.php";
                 }
                 
                 else{
