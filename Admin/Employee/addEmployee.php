@@ -20,7 +20,6 @@
                                         $employeephone = $_POST['employeephone'];
                                         $employeegender = $_POST['employeegender'];
                                         $employeeaddress = $_POST['employeeaddress'];
-                                        $employeestatus = $_POST['employeestatus'];
                                         $departmentcode = $_POST['departmentcode'];
                                         $salarycoefficients = $_POST['salarycoefficients'];
                                        
@@ -37,7 +36,7 @@
                                             $res1 = mysqli_query($conn,$sql1);
                                             $res2 = mysqli_query($conn,$sql2);        
                                                                                 
-                                            if($res == true && $res1 == true && $res2 == true){
+                                            if($res == true && $res1 == true){
                                                 header('Location:index.php');
                                             }
                                             else{

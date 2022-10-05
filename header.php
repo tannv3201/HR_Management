@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-    session_start();
     include('ConnectDatabase/connect.php');
-    $iduser = $_SESSION['id_adminSession'];
-    // include('connect_database/connect.php');
-    if(!isset($_SESSION['id_adminSession'])) //nếu chưa đăng nhập thì ra ngoài
-    {
-        header("Location:index.php");
-    }
+    ob_start();
 ?>
-
 <head>
     <meta charset="utf-8">
     <title>HR_Management</title>
