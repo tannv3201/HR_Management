@@ -1,5 +1,7 @@
 <?php
 include('header.php');
+ob_start();
+
 ?>
 
 <!-- Form Start -->
