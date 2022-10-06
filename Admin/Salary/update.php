@@ -49,7 +49,7 @@ if (isset($_POST['update'])) {
                 SalaryOT = 0
             WHERE EmployeeCode = '$EmployeeCode1'
             ";
-            $res4 = mysqli_query($conn, $sql3);
+            $res4 = mysqli_query($conn, $sql4);
         }
     }
 
