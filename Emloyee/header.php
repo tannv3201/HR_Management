@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-    include('../../ConnectDatabase/connect.php');
-    session_start();
-    $employeecode1 = $_SESSION['id_emloyeeSession'];
-   ob_start();
-   
+        session_start();
+        $employeecode1= $_SESSION['id_emloyeeSession'];
+        include('connect.php');
+        if(!isset($_SESSION['id_emloyeeSession'])) //nếu chưa đăng nhập thì ra ngoài
+        {
+            header("Location:../index.php");
+        }
+        ob_start();
+        
 ?>
 <head>
     <meta charset="utf-8">
@@ -68,8 +72,13 @@
                         </div>
                     </div>
                     <div class="ms-3">
+                        <?php
+                            $sql = "SELECT * FROM `tb_employee` WHERE EmployeeCode = '$employeecode1'";
+                            $res = mysqli_query($conn,$sql);
+                            $row = mysqli_fetch_assoc($res);
+                        ?>
                         <h6 class="mb-0"></h6>
-                        <span>Admin</span>
+                        <h5><?php echo $row['EmployeeName'] ?></h5>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
@@ -169,7 +178,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="http://localhost/HR_Management/img/user.jpg" alt=""
                                 style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Trịnh Long</span>
+                            <span class="d-none d-lg-inline-flex"><?php echo $row['EmployeeName'] ?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">Log Out</a>
