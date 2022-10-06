@@ -1,13 +1,7 @@
 <?php
-    session_start();
-    include('../header.php');
-    if(!isset($_SESSION['id_adminSession'])) //nếu chưa đăng nhập thì ra ngoài
-    {
-        header("Location:../index.php");
-    }if(!isset($_SESSION['id_adminSession'])) //nếu chưa đăng nhập thì ra ngoài
-    {
-        header("Location:../index.php");
-    }
+    include('../ConnectDatabase/connect.php');
+    
+    include('./headerAd.php');
 ?>
 <div>
     <!-- Sale & Revenue Start -->
@@ -177,5 +171,5 @@
 
 </div>
 <?php
-include('../footer.php');
+include('./footerAd.php');
 ?>

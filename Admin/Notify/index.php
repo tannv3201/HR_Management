@@ -1,6 +1,7 @@
 <?php
+include('../../ConnectDatabase/connect.php');
 
-include('../../header.php');
+include('../headerAd.php');
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/js/bootstrap.min.js">
 <div class="title" style="padding-top: 30px;padding-left: 30px;padding-right: 30px;">
@@ -131,7 +132,7 @@ include('../../header.php');
 
 
         <?php
-        include('../../footer.php');
+        include('../footerAd.php');
         ?>
 
         <script>
