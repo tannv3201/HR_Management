@@ -37,15 +37,15 @@
                                         `EmployeeEmail`='$employeeemail',
                                         `EmployeePhone`='$employeephone',
                                         `EmployeeGender`='$employeegender',
-                                        `EmployeeAdress`='$employeeaddress',
-                                         WHERE EmployeeCode = '$employeecode'";
+                                        `EmployeeAdress`='$employeeaddress'
+                                         WHERE EmployeeCode = '$employeecode1'";
                                         
                                         $res = mysqli_query($conn, $sql);
                                         if($res == true){
-                                            header('Location:index.php');
+                                            header('Location:information.php');
                                         }
                                         else{
-                                            header('Location:index.php');
+                                            echo $sql;
                                         }
                                     }
                                     
@@ -98,7 +98,7 @@
                                 <label for="floatingInput">Trạng thái</label>
                             </div>  
                             <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
-                                <input readonly require type="text" class="form-control" name ="salarycoefficients" value ="<?php echo $row2['DepartmentCode'] ?>">
+                                <input readonly require type="text" class="form-control" name ="departmentcode" value ="<?php echo $row2['DepartmentCode'] ?>">
                                 <label for="floatingInput">Phòng ban</label>
                             </div>
                             <div style ="width: 50%; margin-left:25%" class="form-floating mb-3">
@@ -106,7 +106,7 @@
                                 <label for="floatingInput">Hệ số lương</label>
                             </div>
                             <br>
-                            <button name = "submit" style ="margin-left:43%" type="submit" class="btn btn-primary m-6">Cập nhật</button>
+                            <button name = "submit" style ="margin-left:42%" type="submit" class="btn btn-primary m-6">Cập nhật</button>
                             <a href="information.php" class="btn btn-secondary m-6">Hủy bỏ</a>
                             </form>
                         </div>  
