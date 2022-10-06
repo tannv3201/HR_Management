@@ -1,5 +1,7 @@
 <?php
-include('../../header.php');
+include('../../ConnectDatabase/connect.php');
+
+include('../headerAd.php');
 ?>
 
 <div class="title" style="padding-top: 30px;padding-left: 30px;padding-right: 30px;">
@@ -181,5 +183,5 @@ function exportTableToExcel(tableID, filename = '') {
 </script>
 
 <?php
-include('../../footer.php');
+include('../footerAd.php');
 ?>

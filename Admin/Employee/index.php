@@ -1,5 +1,7 @@
 <?php
-include('../../header.php');
+include('../../ConnectDatabase/connect.php');
+
+include('../headerAd.php');
 ?>
 
 <!-- Table Start -->
@@ -203,5 +205,5 @@ include('../../header.php');
 
     <!-- Table End -->
     <?php
-    include('../../footer.php');
+    include('../footerAd.php');
     ?>

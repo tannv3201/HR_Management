@@ -1,5 +1,7 @@
 <?php
-    include('../../header.php');
+    session_start();
+    include('../../ConnectDatabase/connect.php');
+    include('../headerAd.php');
 ?>
 <!-- Table Start -->
 <div class="title" style="padding-top:30px; padding-left:30px;padding-right:30px;">
@@ -110,5 +112,5 @@
 </form>
 <!-- Table End -->
 <?php
-    include('../../footer.php');
+    include('../footerAd.php');
 ?>
