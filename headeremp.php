@@ -74,14 +74,14 @@
                             class="fa fa-tachometer-alt me-2"></i>Trang chủ</a>
                     <div class="nav-item dropdown">
                         <a href="http://localhost/HR_Management/Emloyee/User" class="nav-link"><i
-                                class="fa fa-laptop me-2"></i>Thông tin cá nhân</a>
+                                class="fa fa-user me-2"></i>Thông tin cá nhân</a>
                     </div>
                     <a href="http://localhost/HR_Management/Emloyee/Attendance" class="nav-link"><i
-                            class="fa fa-laptop me-2"></i>Chấm công</a>
+                            class="fa fa-calendar-days me-2"></i>Chấm công</a>
                     <a href="http://localhost/HR_Management/Emloyee/Salary" class="nav-item nav-link"><i
-                            class="fa fa-th me-2"></i>Lương</a>
+                            class="fa fa-dollar me-2"></i>Lương</a>
                     <a href="http://localhost/HR_Management/Emloyee/Notify" class="nav-item nav-link"><i
-                            class="fa fa-keyboard me-2"></i>Thông báo</a>
+                            class="fa fa-bell me-lg-2"></i>Thông báo</a>
                 </div>
             </nav>
         </div>

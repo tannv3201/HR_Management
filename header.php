@@ -74,18 +74,18 @@
                             class="fa fa-tachometer-alt me-2"></i>Trang chủ</a>
                     <div class="nav-item dropdown">
                         <a href="http://localhost/HR_Management/Admin/User" class="nav-link"><i
-                                class="fa fa-laptop me-2"></i>Tài khoản</a>
+                                class="fa fa-user me-2"></i>Tài khoản</a>
                     </div>
                     <a href="http://localhost/HR_Management/Admin/Department" class="nav-link"><i
-                            class="fa fa-laptop me-2"></i>Phòng ban</a>
+                            class="fa fa-desktop me-2"></i>Phòng ban</a>
                     <a href="http://localhost/HR_Management/Admin/Employee" class="nav-item nav-link"><i
-                            class="fa fa-th me-2"></i>Nhân viên</a>
+                            class="fa fa-person me-2"></i>Nhân viên</a>
                     <a href="http://localhost/HR_Management/Admin/Attendance" class="nav-item nav-link"><i
-                            class="fa fa-keyboard me-2"></i>Chấm công</a>
+                            class="fa fa-calendar-days me-2"></i>Chấm công</a>
                     <a href="http://localhost/HR_Management/Admin/Salary" class="nav-item nav-link"><i
-                            class="fa fa-table me-2"></i>Tính Lương</a>
+                            class="fa fa-dollar me-2"></i>Tính Lương</a>
                     <a href="http://localhost/HR_Management/Admin/Notify" class="nav-item nav-link"><i
-                            class="fa fa-chart-bar me-2"></i>Thông báo</a>
+                            class="fa fa-bell me-2"></i>Thông báo</a>
                 </div>
             </nav>
         </div>
