@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-    include('ConnectDatabase/connect.php');
-    ob_start();
+    include('../../ConnectDatabase/connect.php');
+    session_start();
+    $employeecode1 = $_SESSION['id_emloyeeSession'];
+   ob_start();
+   
 ?>
 <head>
     <meta charset="utf-8">
@@ -65,7 +68,7 @@
                         </div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Trịnh Long</h6>
+                        <h6 class="mb-0"></h6>
                         <span>Admin</span>
                     </div>
                 </div>
@@ -73,14 +76,14 @@
                     <a href="http://localhost/HR_Management/Emloyee" class="nav-item nav-link active"><i
                             class="fa fa-tachometer-alt me-2"></i>Trang chủ</a>
                     <div class="nav-item dropdown">
-                        <a href="http://localhost/HR_Management/Emloyee/User" class="nav-link"><i
+                        <a href="http://localhost/HR_Management/Emloyee/information.php" class="nav-link"><i
                                 class="fa fa-user me-2"></i>Thông tin cá nhân</a>
                     </div>
-                    <a href="http://localhost/HR_Management/Emloyee/Attendance" class="nav-link"><i
+                    <a href="http://localhost/HR_Management/Emloyee/attendance.php" class="nav-link"><i
                             class="fa fa-calendar-days me-2"></i>Chấm công</a>
-                    <a href="http://localhost/HR_Management/Emloyee/Salary" class="nav-item nav-link"><i
+                    <a href="http://localhost/HR_Management/Emloyee/salary.php" class="nav-item nav-link"><i
                             class="fa fa-dollar me-2"></i>Lương</a>
-                    <a href="http://localhost/HR_Management/Emloyee/Notify" class="nav-item nav-link"><i
+                    <a href="http://localhost/HR_Management/Emloyee/notify.php" class="nav-item nav-link"><i
                             class="fa fa-bell me-lg-2"></i>Thông báo</a>
                 </div>
             </nav>
