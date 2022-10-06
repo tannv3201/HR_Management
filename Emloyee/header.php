@@ -70,6 +70,11 @@ ob_start();
                         </div>
                     </div>
                     <div class="ms-3">
+                        <?php
+                            $sql = "SELECT * FROM `tb_employee` WHERE EmployeeCode = '$employeecode1'";
+                            $res = mysqli_query($conn,$sql);
+                            $row = mysqli_fetch_assoc($res);
+                        ?>
                         <h6 class="mb-0"></h6>
                         <span><?php echo $empName;?></span>
                     </div>

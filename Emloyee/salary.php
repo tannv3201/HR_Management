@@ -1,5 +1,7 @@
 <?php
-include('header.php');
+
+    include('header.php');  
+  
 ?>
 <div class="title" style="padding-top: 30px;padding-left: 30px;padding-right: 30px;">
     <h1>
