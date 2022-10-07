@@ -42,7 +42,7 @@
             </div>
             <div class="col">
                 <p class="h6">Hệ số lương:</p>
-                <div class="p-2 border rounded bg-white" style="width: 80%;"><?php echo $SalaryCoefficients; ?></div>
+                <div class="p-2 border rounded bg-white" style="width: 80%;"><?=number_format($SalaryCoefficients, 0, '.', '.')?> VND</div>
             </div>
         </div>
         <br>
@@ -59,7 +59,7 @@
             </div>
             <div class="col">
                 <p class="h6">Thưởng:</p>
-                <div class="p-2 border rounded bg-white" style="width: 80%;"><?php echo $SalarySum; ?></div>
+                <div class="p-2 border rounded bg-white" style="width: 80%;"><?=number_format($bonus, 0, '.', '.')?> VND</div>
             </div>
         </div>
         <br>
@@ -67,12 +67,12 @@
         <br>
         <div class="row">
             <div class="col">
-                <p class="h6">Lương:</p>
-                <div class="p-2 border rounded bg-white" style="width: 80%;"><?php echo $bonus; ?></div>
+                <p class="h6">Lương cơ bản:</p>
+                <div class="p-2 border rounded bg-white" style="width: 80%;"><?=number_format($SalarySum, 0, '.', '.')?> VND</div>
             </div>
             <div class="col">
                 <p class="h6">Tổng lương:</p>
-                <div class="p-2 border rounded bg-white" style="width: 80%;"><?php echo $Sum; ?></div>
+                <div class="p-2 border rounded bg-white" style="width: 80%;"><?=number_format($Sum, 0, '.', '.')?> VND</div>
             </div>
             <div class="col">
             </div>

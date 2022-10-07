@@ -109,14 +109,15 @@ include('../headerAd.php');
                                         <th scope="row"><?php echo $id; ?></th>
                                         <td><?php echo $EmployeeCode; ?></td>
                                         <td><?php echo $EmployeeName; ?></td>
-                                        <td><?php echo $SalaryCoefficients; ?></td>
+                                        <td><?php echo number_format($SalaryCoefficients, 0, '.', '.'); ?> VND</td>
                                         <td><?php echo $SalaryDay; ?></td>
                                         <td><?php echo $SalaryOT; ?></td>
-                                        <td><?php echo $bonus; ?></td>
-                                        <td><?php echo $SalarySum; ?></td>
+                                        <td><?=number_format($bonus, 0, '.', '.')?> VND</td>
+                                        <td><?=number_format($SalarySum, 0, '.', '.')?> VND</td>
                                         <td><?php
                                             $Sum = $SalarySum + $bonus;
-                                            echo $Sum; ?></td>
+                                            echo number_format($Sum, 0, '.', '.') ?> VND
+                                            </td>
                                         <td><?php
                                             if ($SalaryStatus == 1) {
                                                 echo 'Hiệu lực';
