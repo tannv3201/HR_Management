@@ -75,7 +75,7 @@ ob_start();
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="./index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Trang chủ</a>
+                    <a href="./index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Trang chủ</a>
                     <div class="nav-item dropdown">
                         <a href="./information.php" class="nav-link"><i class="fa fa-user me-2"></i>Thông tin cá nhân</a>
                     </div>
