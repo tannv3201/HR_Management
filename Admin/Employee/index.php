@@ -60,7 +60,7 @@ include('../headerAd.php');
                             <tbody>
                                 <?php
                                 if (isset($_POST['search'])) {
-                                    $code = $_POST['EmployeeCode'];
+                                   $code = $_POST['EmployeeCode'];
                                     $status = $_POST['EmployeeStatus'];
                                     if ($code == "" && $status == "") {
                                         $sql  = "SELECT * FROM tb_employee";
@@ -69,7 +69,7 @@ include('../headerAd.php');
                                     } else if (empty($code) && !empty($status)) {
                                         $sql = "SELECT * FROM tb_employee WHERE EmployeeStatus = '$status'";
                                     } else if (!empty($code) && !empty($status)) {
-                                        $sql = "SELECT * FROM tb_employee WHERE EmployeeStatus = '$status' AND EmployeeCode = '$code'";
+                                       $sql = "SELECT * FROM tb_employee WHERE EmployeeStatus = '$status' AND EmployeeCode = '$code'";
                                     }
                                 } else {
                                     $sql  = "SELECT * FROM tb_employee";
@@ -187,7 +187,7 @@ include('../headerAd.php');
                                     <?php
                                         }
                                     }
-                                 else {
+                                    else {
                                     ?>
                             </tbody>
                         </table>
