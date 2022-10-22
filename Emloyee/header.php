@@ -2,8 +2,12 @@
 <html lang="en">
 <?php
 session_start();
+<<<<<<< HEAD
 include('connect.php');
 
+=======
+include('../ConnectDatabase/connect.php');
+>>>>>>> 4654cf0236fff1bc28d0220690492c6110debc04
 $employeecode1 = $_SESSION['id_emloyeeSession'];
 ob_start();
 ?>
